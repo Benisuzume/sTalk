@@ -1,0 +1,44 @@
+﻿<Controls:MetroWindow x:Name="frmLogIn" x:Class="sTalk.Client.Windows.LogInWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="sTalk Messenger" TitleCaps="False" 
+                      Width="350" Height="525" MinWidth="350" MinHeight="470" WindowStartupLocation="CenterScreen"
+                      GlowBrush="{DynamicResource AccentColorBrush}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="345" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <Canvas Grid.Column="1" Grid.Row="1" FocusManager.FocusedElement="{Binding ElementName=txtUsername}">
+            <Rectangle Width="128" Height="128" Canvas.Left="61" Fill="{DynamicResource AccentColorBrush}" />
+
+            <TextBox x:Name="txtUsername" Width="250" Canvas.Top="153" MaxLength="16" Controls:TextBoxHelper.Watermark="sTalk Username" />
+            <PasswordBox x:Name="txtPassword" Width="250" Canvas.Top="189" MaxLength="31" Controls:TextBoxHelper.Watermark="Password" />
+
+            <Button x:Name="btnLogIn" Width="150" Height="40" Canvas.Left="50" Canvas.Top="240" Content="Log In" IsDefault="True" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="btnLogIn_Click" />
+
+            <Controls:ProgressRing x:Name="prgBusy" Width="40" Height="40" Canvas.Left="105" Canvas.Top="240" IsActive="False" />
+
+            <TextBlock Canvas.Top="305">
+                <Hyperlink Click="lnkForgotPassowrd_Click">Forgot password?</Hyperlink>
+            </TextBlock>
+            <TextBlock Canvas.Top="330">
+                <Hyperlink Click="lnkDontHaveAnAccount_Click">Don't have an account?</Hyperlink>
+            </TextBlock>
+        </Canvas>
+
+        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3">
+            <TextBlock x:Name="lblStatus" Foreground="White" Text="Ready" Padding="5,0,0,0" />
+        </StatusBar>
+    </Grid>
+</Controls:MetroWindow>

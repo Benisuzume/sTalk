@@ -1,0 +1,41 @@
+If i understand correctly, you are trying to communicate peer-to-peer between 2 clients each behind a different NAT, using a mediation server for hole punching?
+
+Few years ago i did the exact same thing in c#, i haven't found the code yet, but ill give you some pointers if you like:
+
+First, I wouldn't use the Connect() function on the udpclient, since UDP is a connectionless protocol, all this function really does is hide the functionality of a UDP socket.
+
+You should perfrom the following steps:
+
+Open a UDP socket on a server with it's ports not blocked by a firewall, at a specific port (eg Bind this socket to a chosen port for example 23000)
+Create a UDP socket on the first client, and send something to the server at 23000. Do not bind this socket. When a udp is used to send a packet, windows will automatically assign a free port to the socket
+Do the same from the other client
+The server has now received 2 packets from 2 clients at 2 different adresses with 2 different ports. Test if the server can send packets back on the same address and port. (If this doesn't work you did something wrong or your NAT isn't working. You know its working if you can play games without opening ports :D)
+The server should now send the address and port of the other clients to each connected client.
+A client should now be able to send packets using UDP to the adresses received from the server.
+You should note that the port used on the nat is probably not the same port as on your client pc!! The server should distribute this external port to clients. You must use the external adresses and the external ports to send to!
+
+Also note that your NAT might not support this kind of port forwarding. Some NAT's forward all incoming traffic on a assigned port to you client, which is what you want. But some nats do filtering on the incoming packets adresses so it might block the other clients packets. This is unlikely though when using a standard personal user router.
+
+----------------------------------------------------------------------------------------------------
+
+Hmm, I think you are confusing several things here. For one thing, it's really called UDP hole punching. Let me try to explain how this should work.
+
+NAT routers usually do port mapping when forwarding packets from the inside private network to the outside internet.
+
+Say you created a UDP socket on a machine behind NAT, and sent a datagram to some external IP/port. When the IP packet carrying that datagram leaves the sending machine, its IP header has the source address field set to local not-globally-routable private IP address (like 192.168.1.15), and UDP header has the source port field set to whatever port was assigned to the socket (either explicitly via binding, or implicitly picked by the OS from the ephemeral ports). I'll call this source port number P1.
+
+Then when the NAT router sends that packet out on the outside network, it overwrites the source IP address to its own external IP address (otherwise there's no way to route packets back), and often overwrites the source UDP port to some other value (maybe because some other host on the private network uses the same source port, which creates ambiguity). The mapping between the original source port and that new port number (let's label it P2) is preserved in the router to match return packets. This mapping might also be specific to the target IP address and target UDP port.
+
+So now you have "punched a hole" in the router - UDP packets sent back to the router to port P2 are forwarded to internal machine on UDP port P1. Again, depending on NAT implementation, this could be restricted to only packets from the original target IP address and target UDP port.
+
+For client-to-client communication you'll have to tell external IP/port of one to the other through the server, hoping that the NAT router maps same internal source ports to same external source ports. Then the clients will send packets to each other using those.
+
+----------------------------------------------------------------------------------------------------
+
+Peer-to-Peer Communication Across Network Address Translators
+http://www.brynosaurus.com/pub/net/p2pnat/
+
+----------------------------------------------------------------------------------------------------
+
+ServicePoint.SetTcpKeepAlive Method (Boolean, Int32, Int32) (System.Net)
+https://msdn.microsoft.com/en-us/library/system.net.servicepoint.settcpkeepalive(v=vs.110).aspx

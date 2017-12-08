@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ACB0C15D-8042-4C07-8D6A-B5582A8CEF89}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Libraries</RootNamespace>
+    <AssemblyName>Libraries</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Communication\Packet\Client\SetProfilePicture.cs" />
+    <Compile Include="Communication\Packet\Client\GetProfilePicture.cs" />
+    <Compile Include="Communication\Packet\Data\Account.cs" />
+    <Compile Include="Communication\Packet\Identifier.cs" />
+    <Compile Include="Communication\Packet\Server\GetProfilePicture.cs" />
+    <Compile Include="Communication\Packet\Server\SetProfilePicture.cs" />
+    <Compile Include="Communication\Packet\Server\StatusChanged.cs" />
+    <Compile Include="Encryption\Asymmetric.cs" />
+    <Compile Include="Encryption\Deflate.cs" />
+    <Compile Include="Encryption\Hash.cs" />
+    <Compile Include="Encryption\Symmetric.cs" />
+    <Compile Include="Communication\Packet\Client\AddContact.cs" />
+    <Compile Include="Communication\Packet\Client\BlockUser.cs" />
+    <Compile Include="Communication\Packet\Client\Handshake.cs" />
+    <Compile Include="Communication\Packet\Client\JoinRoom.cs" />
+    <Compile Include="Communication\Packet\Client\LeaveRoom.cs" />
+    <Compile Include="Communication\Packet\Client\PrivateMessage.cs" />
+    <Compile Include="Communication\Packet\Client\PublicMessage.cs" />
+    <Compile Include="Communication\Packet\Client\DeleteContact.cs" />
+    <Compile Include="Communication\Packet\Client\LogIn.cs" />
+    <Compile Include="Communication\Packet\Client\LogOut.cs" />
+    <Compile Include="Communication\Packet\Client\UnblockUser.cs" />
+    <Compile Include="Communication\Packet\Data\OfflineMessage.cs" />
+    <Compile Include="Communication\Packet\Data\Room.cs" />
+    <Compile Include="Communication\Packet\Data\User.cs" />
+    <Compile Include="Communication\Packet\Enums.cs" />
+    <Compile Include="Communication\Sanitize.cs" />
+    <Compile Include="Communication\Packet\Server\AddContact.cs" />
+    <Compile Include="Communication\Packet\Server\BlockUser.cs" />
+    <Compile Include="Communication\Packet\Server\Handshake.cs" />
+    <Compile Include="Communication\Packet\Server\JoinRoom.cs" />
+    <Compile Include="Communication\Packet\Server\LeaveRoom.cs" />
+    <Compile Include="Communication\Packet\Server\PublicMessageResult.cs" />
+    <Compile Include="Communication\Packet\Server\PrivateMessageResult.cs" />
+    <Compile Include="Communication\Packet\Server\PrivateMessage.cs" />
+    <Compile Include="Communication\Packet\Server\PublicMessage.cs" />
+    <Compile Include="Communication\Packet\Server\DeleteContact.cs" />
+    <Compile Include="Communication\Packet\Server\LogIn.cs" />
+    <Compile Include="Communication\Packet\Server\LogOut.cs" />
+    <Compile Include="Communication\Packet\Server\UnblockUser.cs" />
+    <Compile Include="Communication\Packet\Server\UserJoinedRoom.cs" />
+    <Compile Include="Communication\Packet\Server\UserLeftRoom.cs" />
+    <Compile Include="ImageConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

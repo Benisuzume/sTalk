@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Server.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">server=localhost;uid=root;pwd=;database=stalk;charset=utf8;</Value>
+    </Setting>
+    <Setting Name="PrivateKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;RSAKeyValue&gt;&lt;Modulus&gt;7JOWqJNpEXahEQj5riBSplfIdREnO7kZQlBIo2aEXEdSk/lsu1Q2BfrJMT6/E7T4sPYE+jh72zkVsP75DhwSanfZHy1lnRk0LDC/KG1wVmWYUyRXCZB1hKhWKrwqFNWiXKysPNuhB1CzpSd1u66H26cSEu5g7vdeLHcKawTrZu3+IHF4vutOeivc0ibO4+Q9p9Q6oseWOfJ6xJkm3RdwaeOU0GwVH5H1NBbZuvQyPErrQYTb9l/gVSsASt4UEyE1sVtPeZTuwAI3nkdq6PJAmKnHsV2Zl2bsbGLK5tPpk6YIdKxJ5chWgNq/4m+n0Hq9iHY0Ofxuz66v8gWd9cRziw==&lt;/Modulus&gt;&lt;Exponent&gt;AQAB&lt;/Exponent&gt;&lt;P&gt;+Jrnju3L35OtUlcAtyfQ4wU9Stt1yA/8t+tCjaAOCjUkDDucgBpw0JguGV4mT880vJ/lO6zZQHfPO0NnhtewO4wa77co8/t742N0uqRAoeGfs2mLwAFzBwDnW77/YmlgOF+doYjaqbrsJlqvU0A8i0HIDDp8gUh1ZHUqpJI4osE=&lt;/P&gt;&lt;Q&gt;850WglkLUFqhQrGFddLIBYLq7AKgrxMGPI1iApqQpuBJoG01/Qpjw0ZQk++o7gBhuiY+lKtjd8mLHi2GMOtRamKLJPqa4EgkN0ehonWgPU7nlZWdU4uVeAuYTZmH7/mBrEHI5DEI7IylxNBAKoFjg8/FHKJfdO1UrZwjzha/BUs=&lt;/Q&gt;&lt;DP&gt;wbQw6HTwfWwbiCSyMgOcBsd2UnVc+F08lDGC0cb8KYfuZnmsH0R60o1AnhN11omklbQgcLblMA4qMgr7B13Xuw4XjuAv0KsKhMphkWuZ0Ih0Xt7GPPzkG3jgy+OuKYfhqQsXT13KwqUai2ftY/iRNBA1RxHrIPDMR1HjwAcOigE=&lt;/DP&gt;&lt;DQ&gt;n31msSvOxmqvTNSgBYVbwo/1cVI/FJ+l45rEYeQDc90/FrKpN+LHcZ7lPhUXScoiMRa8veR/GHtwgu9W/UvyX23onusa3l8cprxUy+GqaLjx0PLEr1+hGZitu5AaeTemd7oR5aNcrlFebb3RZIKVPkSWTarYR9rhJ1Aj+NbXdIU=&lt;/DQ&gt;&lt;InverseQ&gt;MdAeUSfKj/2+LlxK1XXR5mK+ukxGToz3bQTaQYzGEZ2uFTGZJQDMGb1785T8qAKRBOLsPt9pA4V1aA0HPwtO7ipceeyDr93or0TiYOnoQBRbJOvA65Ox3udqQ9htj9Xr/U+4xeEnRQ76OfjDZdHef6ATu/UTC+YI5T9xXHiXA/U=&lt;/InverseQ&gt;&lt;D&gt;N9GO35GAXd12nVVXy+zWc2cM5go5Do9a1Vmp+dvLaRZu9nkIXZ697GVCqTrbzKOLdf1mKT/AgXYTlyJh0yFueu5yLTgB3LJArBiIUdqYgdoQubU+UARkpfst8YFaEHZji6g2L1nGwboZ2OLZlYHVjk76JbtW5as57hXcQGn1vOAATa9E/4EHwApi0MD00t2yZPmqHfOImVnEfxFjpUwGIMB9GTLVOBUM7Swtd0cb4LYnMaExI4u5/griA1QCA+meettV1iWRMT3ZBMxTLMM2D2LsL9HSuomTFue5WCDcH2Z36XZxlcWwURPNFMrJoZ2ZQncz9jIeInldgtLVBZbggQ==&lt;/D&gt;&lt;/RSAKeyValue&gt;</Value>
+    </Setting>
+    <Setting Name="ServerPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">443</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

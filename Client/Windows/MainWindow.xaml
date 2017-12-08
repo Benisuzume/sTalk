@@ -1,0 +1,96 @@
+﻿<Controls:MetroWindow x:Name="frmMain" x:Class="sTalk.Client.Windows.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="sTalk Messenger" TitleCaps="False" 
+                      Width="1000" Height="600" MinWidth="700" MinHeight="500" WindowStartupLocation="CenterScreen"
+                      xmlns:factories="clr-namespace:sTalk.Client.Windows.Factories"
+                      GlowBrush="{DynamicResource AccentColorBrush}">
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="btnBlocks" Content="Blocked Accounts" Click="btnBlocks_Click" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="btnContacts" Content="Contacts" Click="btnContacts_Click" />
+            <Button x:Name="btnRooms" Content="Rooms" Click="btnRooms_Click" />
+            <Button x:Name="btnLeaveRoom" Content="Leave Room" Click="btnLeaveRoom_Click" Visibility="Collapsed" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="flyBlocks" Header="Blocked Accounts" Width="300" Position="Left">
+                <Grid Margin="10,0,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="75" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Controls:TextBoxHelper.Watermark="Username..." />
+
+                        <Button x:Name="btnBlock" Grid.Column="2" Controls:ControlsHelper.ContentCharacterCasing="Normal" Content="Block" Style="{DynamicResource SquareButtonStyle}" Click="btnAdd_Click" />
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="pnlBlocks" />
+                    </ScrollViewer>
+                </Grid>
+            </Controls:Flyout>
+
+            <Controls:Flyout x:Name="flyContacts" Position="Right" Width="300" Header="Contacts">
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="75" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="txtUsername" Controls:TextBoxHelper.Watermark="Username..." />
+                        <Button x:Name="btnAdd" Grid.Column="2" Controls:ControlsHelper.ContentCharacterCasing="Normal" Content="Add" IsDefault="True" Style="{DynamicResource SquareButtonStyle}" Click="btnAdd_Click" />
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Source={x:Static factories:ContactFactory.Contacts }}" />
+                    </ScrollViewer>
+                </Grid>
+            </Controls:Flyout>
+
+            <Controls:Flyout x:Name="flyRooms" Header="Rooms" Width="300" Position="Right">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Source={x:Static factories:RoomFactory.Rooms }}" />
+                </ScrollViewer>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <TabControl x:Name="tabMain" Grid.Row="0" Controls:TabControlHelper.IsUnderlined="True" />
+
+        <StatusBar Grid.Row="1">
+            <TextBlock x:Name="lblStatus" Foreground="White" Text="Ready" Padding="5,0,0,0" />
+        </StatusBar>
+    </Grid>
+</Controls:MetroWindow>
